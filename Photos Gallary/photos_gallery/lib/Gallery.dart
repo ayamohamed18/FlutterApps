@@ -32,7 +32,7 @@ class _GalleryState extends State<Gallery> {
         title: Text('Photos Gallery'),
       ),
       body: Center(
-          child: (index < 5)
+          child: (index < 5 && index >= 0)
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -77,7 +77,13 @@ class _GalleryState extends State<Gallery> {
               : Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('assets/images/tenor.gif'),
+                    (index >= 5)
+                        ? Image.asset('assets/images/tenor.gif')
+                        : Text(
+                            'Press here to show photos',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 30, color: Colors.white),
+                          ),
                     RaisedButton(
                       onPressed: () {
                         setState(() {
@@ -85,13 +91,13 @@ class _GalleryState extends State<Gallery> {
                         });
                       },
                       child: Text(
-                        'Show Again',
+                        'show Photos',
                         style: TextStyle(
                           fontSize: 25,
                           color: Colors.pink[400],
                         ),
                       ),
-                      color:Colors.blue[900],
+                      color: Colors.blue[900],
                     )
                   ],
                 )),
