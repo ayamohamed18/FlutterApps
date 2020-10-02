@@ -41,8 +41,8 @@ class _GalleryState extends State<Gallery> {
       setState(() {
                           index++;
                         });
-              }),
-               IconButton(
+              }),],
+               leading:Builder(builder: (BuildContext context){return IconButton(
               icon: Text(
                 'Prev',
                 textAlign: TextAlign.left,
@@ -52,9 +52,8 @@ class _GalleryState extends State<Gallery> {
       setState(() {
                           index--;
                         });
-              }),
+              });}),
               
-        ],
       ),
       body: Center(
           child: (index < 5 && index >= 0)
