@@ -30,6 +30,31 @@ class _GalleryState extends State<Gallery> {
         backgroundColor: Colors.blue[900],
         centerTitle: true,
         title: Text('Photos Gallery'),
+        actions: <Widget>[
+          IconButton(
+              icon: Text(
+                'Next',
+                textAlign: TextAlign.right,
+                style: TextStyle(fontSize: 15, color: Colors.black),
+              ),
+              onPressed: () {
+      setState(() {
+                          index++;
+                        });
+              }),
+               IconButton(
+              icon: Text(
+                'Prev',
+                textAlign: TextAlign.left,
+                style: TextStyle(fontSize: 15, color: Colors.black),
+              ),
+              onPressed: () {
+      setState(() {
+                          index--;
+                        });
+              }),
+              
+        ],
       ),
       body: Center(
           child: (index < 5 && index >= 0)
@@ -42,36 +67,7 @@ class _GalleryState extends State<Gallery> {
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                     images[index],
-                    RaisedButton(
-                      onPressed: () {
-                        setState(() {
-                          index++;
-                        });
-                      },
-                      child: Text(
-                        'Next',
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.black,
-                        ),
-                      ),
-                      color: Colors.blue[900],
-                    ),
-                    RaisedButton(
-                      onPressed: () {
-                        setState(() {
-                          index--;
-                        });
-                      },
-                      child: Text(
-                        'Previous',
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.black,
-                        ),
-                      ),
-                      color: Colors.blue[900],
-                    )
+                   
                   ],
                 )
               : Column(
